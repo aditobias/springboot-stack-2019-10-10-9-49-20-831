@@ -31,12 +31,12 @@ public class EmployeeResource {
                 .orElse(null);
     }
 
-    @PostMapping(path = "/addUser", produces = {"application/json"})
-    public ResponseEntity<String> addEmployee(@RequestBody Employee employee) {
+    @PostMapping(path = "/addEmployee", produces = {"application/json"})
+    public ResponseEntity<String> addEmployee(@RequestBody List<Employee> employeeListCreate) {
 
-        employeeList.add(employee);
+        employeeList.addAll(employeeListCreate);
 
-        return ResponseEntity.ok("Added user: " + employee.getName());
+        return ResponseEntity.ok("Added new employees!");
     }
 
     @PutMapping(path = "/changeUser/{id}", produces = {"application/json"})
