@@ -39,12 +39,11 @@ public class EmployeeResource {
         return ResponseEntity.ok("Added new employees!");
     }
 
-    @PutMapping(path = "/changeUser/{id}", produces = {"application/json"})
+    @PutMapping(path = "/changeEmployeeData/{id}", produces = {"application/json"})
     public ResponseEntity<String> changeEmployee(@PathVariable Integer id, @RequestBody Employee employee) {
         Employee oldEmployee = employeeList.stream()
-                .filter(employeeInList -> employeeInList.getId() == employee.getId())
+                .filter(employeeInList -> employeeInList.getId() == id)
                 .findFirst().get();
-        employee.setId(id);
 
         employeeList.set(employeeList.indexOf(oldEmployee), employee);
 
