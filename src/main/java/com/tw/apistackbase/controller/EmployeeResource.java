@@ -50,7 +50,7 @@ public class EmployeeResource {
         return ResponseEntity.ok("Employee updated!");
     }
 
-    @DeleteMapping(path = "/deleteUser", produces = {"application/json"})
+    @DeleteMapping(path = "/deleteEmployee", produces = {"application/json"})
     public ResponseEntity<String> removeEmployee(@PathVariable Integer id) {
 
         Employee findEmployee = employeeList.stream()
