@@ -12,7 +12,7 @@ import java.util.logging.Logger;
  * Created by jxzhong on 18/08/2017.
  */
 @RestController
-@RequestMapping("/employee")
+    @RequestMapping("/employee")
 public class EmployeeResource {
     private List<Employee> employeeList = new ArrayList<>();
     private final Logger log = Logger.getLogger(this.getClass().getName());
@@ -50,7 +50,7 @@ public class EmployeeResource {
         return ResponseEntity.ok("Employee updated!");
     }
 
-    @DeleteMapping(path = "/deleteEmployee", produces = {"application/json"})
+    @DeleteMapping(path = "/deleteEmployee/{id}", produces = {"application/json"})
     public ResponseEntity<String> removeEmployee(@PathVariable Integer id) {
 
         Employee findEmployee = employeeList.stream()
